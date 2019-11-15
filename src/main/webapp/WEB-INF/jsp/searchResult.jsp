@@ -28,7 +28,7 @@
             <div class="span-table-cells">
                 <c:forEach var="sensor" items="${sensors}">
                     <span>
-                        <a href="${pageContext.request.contextPath}/sensorDetails/${sensor.name}/${sensor.id}">
+                        <a href="${pageContext.request.contextPath}/sensorDetails/${sensor.name}/${sensor.id}/1">
                                 ${sensor.name}
                         </a>
                     </span>
