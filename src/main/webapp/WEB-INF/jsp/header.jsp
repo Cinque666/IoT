@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: romaz
@@ -10,7 +11,13 @@
 <html lang="eu">
 <head>
     <style>
+        <%@include file="/WEB-INF/css/information.css"%>
+    </style>
+    <style>
         <%@include file='/WEB-INF/css/home.css' %>
+    </style>
+    <style>
+        <%@include file='/WEB-INF/css/deviceDetails.css' %>
     </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,7 +38,7 @@
                 <a class="nav-link" href="${pageContext.request.contextPath}/">Начальная <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Информация</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/information">Информация</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,14 +46,33 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <c:forEach var="device" items="${devices}">
-                        <a class="dropdown-item" href="#">${device.name}</a>
+                        <a class="dropdown-item"
+                           href="${pageContext.request.contextPath}/deviceDetails/device/${device.id}">
+                                ${device.name}
+                        </a>
                     </c:forEach>
                 </div>
             </li>
+
+            <sec:authorize access="hasRole('ADMIN')">
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/register">Регистрация</a>
+                </li>
+            </sec:authorize>
+
+            <sec:authorize access="!isAuthenticated()">
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/login">Вход</a>
+                </li>
+            </sec:authorize>
+
         </ul>
     </div>
-    <form action="${pageContext.request.contextPath}/search" class="form-inline my-2 my-lg-0">
-        <input name="searchStr" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <sec:authorize access="hasAnyRole('ADMIN', 'ANALYST')">
+        <form action="${pageContext.request.contextPath}/search" class="form-inline my-2 my-lg-0">
+            <input name="searchDevice" class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+        </form>
+    </sec:authorize>
+
 </nav>

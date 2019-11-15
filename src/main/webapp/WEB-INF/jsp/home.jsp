@@ -14,13 +14,16 @@
     <div class="main-picture">
         <div class="about">
             Интеллектуальная система "Умный дом"<br>
-            <button type="button" class="btn btn-dark">Подробнее</button>
+            <form action="${pageContext.request.contextPath}/information" method="get">
+                <button type="submit" class="btn btn-dark">Подробнее</button>
+            </form>
         </div>
+
+        <div>
+            ${password}
+        </div>
+
     </div>
-
-
-
-<%--<img src="resources/image/main-image.png" alt="incubating">--%>
 
 <jsp:include page="footer.jsp"/>
 

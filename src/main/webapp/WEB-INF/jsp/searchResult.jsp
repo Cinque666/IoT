@@ -1,16 +1,16 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
   Created by IntelliJ IDEA.
   User: romaz
-  Date: 12.11.2019
-  Time: 16:59
+  Date: 14.11.2019
+  Time: 23:27
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <jsp:include page="header.jsp"/>
 
-<div class="device-details-picture">
-
+<div class="sensor-details">
 <table class="table table-dark">
     <thead>
     <tr>
@@ -20,9 +20,10 @@
     </tr>
     </thead>
     <tbody>
+    <c:forEach var="searchDevice" items="${searchDevices}">
     <tr>
-        <th scope="row">${device.id}</th>
-        <td>${device.name}</td>
+        <th scope="row">${searchDevice.id}</th>
+        <td>${searchDevice.name}</td>
         <td>
             <div class="span-table-cells">
                 <c:forEach var="sensor" items="${sensors}">
@@ -35,9 +36,9 @@
             </div>
         </td>
     </tr>
+    </c:forEach>
     </tbody>
 </table>
-
 </div>
 
 <jsp:include page="footer.jsp"/>

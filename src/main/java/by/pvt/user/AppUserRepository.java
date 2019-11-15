@@ -14,7 +14,7 @@ public class AppUserRepository {
     public ApplicationUser findUserByLogin(String username) {
         try {
             return sessionFactory.getCurrentSession()
-                    .createQuery("from User where username like :param1", ApplicationUser.class)
+                    .createQuery("from ApplicationUser where username like :param1", ApplicationUser.class)
                     .setParameter("param1", username)
                     .getSingleResult();
         } catch (Exception e) {

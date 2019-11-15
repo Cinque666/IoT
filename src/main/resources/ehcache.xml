@@ -1,0 +1,16 @@
+<ehcache>
+
+    <diskStore path="java.io.tmpdir"/>
+
+    <defaultCache maxEntriesLocalHeap="0"
+                  eternal="false"
+                  timeToIdleSeconds="600"
+                  timeToLiveSeconds="600">
+    </defaultCache>
+
+    <cache name="by.pvt.pojo.Device"
+           maxBytesLocalHeap="1m"
+           timeToLive="600">
+    </cache>
+
+</ehcache>

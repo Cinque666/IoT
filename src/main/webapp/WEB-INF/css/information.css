@@ -1,0 +1,22 @@
+.information-page{
+    background-image: url(https://sun9-55.userapi.com/c857336/v857336080/47157/BfiNIQfa5Gk.jpg);
+    margin: 0;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    position: sticky;
+}
+
+h2{
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+.information{
+    color: black;
+    position: absolute;
+}

@@ -1,0 +1,39 @@
+.device-details-picture{
+    margin: 0;
+    height: 100%;
+    background-image: url(https://pbs.twimg.com/media/DV2MzLxXcAUtBA2.jpg:large);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+table{
+    text-align: center;
+    font-size: 150%;
+}
+
+.sensor-name{
+    text-align: center;
+    font-size:300%;
+}
+
+.registration-picture{
+    margin: 0;
+    height: 100%;
+    background-image: url(https://sun9-2.userapi.com/c857336/v857336080/47112/kMH-9Y1oHvg.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.form-group{
+    width:30%;
+    margin-left: 35%;
+}
+
+.reg-btn{
+    margin-left: 48%;
+}
+

@@ -40,12 +40,6 @@ public class WebAppConfig implements WebMvcConfigurer {
         registry.addResourceHandler("WEB-INF/css/**").addResourceLocations("/WEB-INF/css/");
     }
 
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("redirect:/home");
-//        registry.addRedirectViewController("/", "/home");
-    }
-
     @Bean
     public InternalResourceViewResolver internalResourceViewResolver(){
 

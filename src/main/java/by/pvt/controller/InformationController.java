@@ -1,7 +1,7 @@
 package by.pvt.controller;
 
 import by.pvt.pojo.Device;
-import by.pvt.service.DeviceDetailsService;
+import by.pvt.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-@RequestMapping("/deviceDetails")
-public class DeviceDetailsPageController {
+@RequestMapping("/information")
+public class InformationController {
 
     @Autowired
-    private DeviceDetailsService deviceDetailsService;
+    private HomeService homeService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getDeviceDetails(Model model){
+    public String getInformation(Model model){
 
-        List<Device> devices = deviceDetailsService.getDevices();
+        List<Device> devices = homeService.getDevices();
         model.addAttribute("devices", devices);
 
-        return "deviceDetails";
+        return "information";
     }
 }
