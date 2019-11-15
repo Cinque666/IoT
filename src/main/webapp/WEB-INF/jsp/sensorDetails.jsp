@@ -31,6 +31,15 @@
         </tbody>
     </table>
 
+    <ul class="pagination pagination-sm">
+        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/sensorDetails/${objSensor.name}/${objSensor.id}/1">1</a></li>
+        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/sensorDetails/${objSensor.name}/${objSensor.id}/2">2</a></li>
+        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/sensorDetails/${objSensor.name}/${objSensor.id}/3">3</a></li>
+    </ul>
+
+    <div style="width: 600px;">
+        <div id="chart_div"></div>
+    </div>
 </div>
 
 <jsp:include page="footer.jsp"/>

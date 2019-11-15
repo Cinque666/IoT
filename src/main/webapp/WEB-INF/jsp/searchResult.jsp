@@ -10,7 +10,7 @@
 
 <jsp:include page="header.jsp"/>
 
-<div class="sensor-details">
+<div class="search-page">
 <table class="table table-dark">
     <thead>
     <tr>

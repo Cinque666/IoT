@@ -4,23 +4,23 @@
 <jsp:include page="header.jsp"/>
 
 <div class="registration-picture">
-<h1>Register New User</h1>
+<h1>Регистрация нового пользователя</h1>
 
 <form action="${pageContext.request.contextPath}/register" method="POST">
     <div class="form-group">
-        <label for="name">Name</label>
+        <label for="name">Имя</label>
         <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name">
     </div>
     <div class="form-group">
-        <label for="surname">Surname</label>
-        <input type="text" name="surname" class="form-control" id="surname" placeholder="Enter your name">
+        <label for="surname">Фамилия</label>
+        <input type="text" name="surname" class="form-control" id="surname" placeholder="Enter your surname">
     </div>
     <div class="form-group">
-        <label for="userName">User Login</label>
+        <label for="userName">Логин</label>
         <input type="text" name="userName" class="form-control" id="userName" placeholder="Enter login">
     </div>
     <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password">Пароль</label>
         <input type="password" name="password" class="form-control" id="password" placeholder="Password">
     </div>
     <div class="form-group">
@@ -31,7 +31,7 @@
         </select>
     </div>
 
-    <button type="submit" class="btn btn-primary reg-btn">Submit</button>
+    <button type="submit" class="btn btn-primary reg-btn">Отправить</button>
 </form>
 </div>
 

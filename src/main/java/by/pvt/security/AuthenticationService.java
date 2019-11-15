@@ -1,7 +1,7 @@
 package by.pvt.security;
 
 import by.pvt.pojo.ApplicationUser;
-import by.pvt.user.AppUserRepository;
+import by.pvt.repository.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

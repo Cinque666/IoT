@@ -32,13 +32,26 @@ public class SearchResultController {
     public String getSearchResult(@RequestParam String searchDevice, Model model){
 
         List<Device> searchDevices = searchResultService.searchDevice(searchDevice);
+
+        if(searchDevice.isEmpty()){
+            return "error";
+        }
         model.addAttribute("searchDevices", searchDevices);
 
         Long id = searchDevices.get(0).getId();
         List<Sensor> sensors = deviceDetailsService.getSensorsByDeviceId(id);
+
+        if(sensors.isEmpty()){
+            return "error";
+        }
         model.addAttribute("sensors", sensors);
 
         List<Device> devices = homeService.getDevices();
+
+        if(devices.isEmpty()){
+            return "error";
+        }
+
         model.addAttribute("devices", devices);
 
         return "searchResult";

@@ -20,4 +20,13 @@ public class SensorValueRepository {
                 .setParameter("param", id)
                 .list();
     }
+
+    public List<SensorValue> getValuesBySensorIdAndPageId(Long id, int pageId, int total) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("FROM SensorValue where sensorid = :param order by id desc", SensorValue.class)
+                .setParameter("param", id)
+                .setFirstResult(pageId)
+                .setMaxResults(total)
+                .list();
+    }
 }

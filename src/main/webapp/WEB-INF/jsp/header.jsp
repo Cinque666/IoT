@@ -10,6 +10,42 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="eu">
 <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        // Load the Visualization API and the piechart package.
+        google.load('visualization', '1.0', {
+            'packages' : [ 'corechart' ]
+        });
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.setOnLoadCallback(drawChart);
+        // Callback that creates and populates a data table,
+        // instantiates the pie chart, passes in the data and
+        // draws it.
+        function drawChart() {
+            // Create the data table.
+            //var data = new google.visualization.DataTable();
+            //data.addColumn('string', 'Topping');
+            //data.addColumn('number', 'Slices');
+            var data = google.visualization.arrayToDataTable([
+                ['Info', 'Value'],
+                <c:forEach items="${values}" var="value">
+                [ '${value.id}', ${value.value} ],
+                </c:forEach>
+            ]);
+            // Set chart options
+            var options = {
+                'Average temperature' : 'Area-wise Top Seven Countries in the World', //title which will be shown right above the Google Pie Chart
+                is3D : true, //render Google Pie Chart as 3D
+                pieSliceText: 'label', //on mouse hover show label or name of the Country
+                tooltip :  {showColorCode: true}, // whether to display color code for a Country on mouse hover
+                'width' : 900, //width of the Google Pie Chart
+                'height' : 500 //height of the Google Pie Chart
+            };
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
     <style>
         <%@include file="/WEB-INF/css/information.css"%>
     </style>
@@ -65,8 +101,13 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/login">Вход</a>
                 </li>
             </sec:authorize>
-
+            <sec:authorize access="isAuthenticated()">
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/logout">Выйти</a>
+                </li>
+            </sec:authorize>
         </ul>
+
     </div>
     <sec:authorize access="hasAnyRole('ADMIN', 'ANALYST')">
         <form action="${pageContext.request.contextPath}/search" class="form-inline my-2 my-lg-0">

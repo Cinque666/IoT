@@ -1,4 +1,4 @@
-package by.pvt.user;
+package by.pvt.repository;
 
 import by.pvt.pojo.ApplicationUser;
 import org.hibernate.SessionFactory;
@@ -18,7 +18,7 @@ public class AppUserRepository {
                     .setParameter("param1", username)
                     .getSingleResult();
         } catch (Exception e) {
-//            log.warning(e.getMessage());
+
             return null;
         }
     }

@@ -20,4 +20,11 @@ public class SensorRepository {
                 .setParameter("param", deviceId)
                 .list();
     }
+
+    public Sensor getSensorByName(String sensor) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Sensor where name = :param", Sensor.class)
+                .setParameter("param", sensor)
+                .getSingleResult();
+    }
 }
